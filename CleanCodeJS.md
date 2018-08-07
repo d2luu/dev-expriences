@@ -126,3 +126,96 @@ const emailActiveClients = (clients) => {
 
 ### Use meaningful func name and this name should say what func do
 Same to variable's name
+
+### Encapsule conditionals (Đóng gói các điều kiện)
+**Not good:**
+```javascript
+if (fsm.state === 'fetching' && isEmpty(listNode)) {
+  // ...
+}
+```
+
+**Good:**
+```javascript
+function shouldShowSpinner(fsm, listNode) {
+	return fsm.state === 'fetching' && isEmpty(listNode);
+}
+
+if(shouldShowSpinner(fsmInstance, listNodeInstance)) {
+	// ...
+}
+
+### Use functional programming as much as possible
+**Not good:**
+```javascript
+const programmerOutput = [
+  {
+    name: 'Uncle Bobby',
+    linesOfCode: 500
+  }, {
+    name: 'Suzie Q',
+    linesOfCode: 1500
+  }, {
+    name: 'Jimmy Gosling',
+    linesOfCode: 150
+  }, {
+    name: 'Gracie Hopper',
+    linesOfCode: 1000
+  }
+];
+
+let totalOutput = 0;
+
+for (let i = 0; i < programmerOutput.length; i++) {
+  totalOutput += programmerOutput[i].linesOfCode;
+```
+
+**Good:**
+```javascript
+const programmerOutput = [
+  {
+    name: 'Uncle Bobby',
+    linesOfCode: 500
+  }, {
+    name: 'Suzie Q',
+    linesOfCode: 1500
+  }, {
+    name: 'Jimmy Gosling',
+    linesOfCode: 150
+  }, {
+    name: 'Gracie Hopper',
+    linesOfCode: 1000
+  }
+];
+
+const INITIAL_VALUE = 0;
+
+const totalOutput = programmerOutput
+  .map((programmer) => programmer.linesOfCode)
+  .reduce((acc, linesOfCode) => acc + linesOfCode, INITIAL_VALUE);
+```
+
+### Delete Dead code
+**Not Good:**
+```javascript
+function oldF() {
+	// ...
+}
+
+function newF() {
+	// ...
+}
+
+newF()
+// oldF() never use
+```
+
+**Good:**
+```javascript
+function newF() {
+	// ...
+}
+
+newF()
+```
+
