@@ -219,3 +219,48 @@ function newF() {
 newF()
 ```
 
+### Use function chain:
+
+**Not good:**
+```javascript
+const car = new Car();
+car.setColor('pink');
+car.setModel('Ducati');
+car.save();
+```
+
+**Good:**
+```javascript
+const car = new Car();
+car.setColor('pink').setModel('Ducati').save();
+```
+
+### SOLID
+**S: Single responsibility**
+```bash
+1 lớp chỉ có thể thay đổi vì 1 lý do. Hạn chế việc xây dựng quá nhiều chức năng trong 1 lớp.
+Khi có quá nhiều chức năng, 1 thay đổi có thể dẫn đến hàng loạt các thay đổi khác mà không 
+kiểm soát được.
+```
+
+**O: Open-close**
+```bash
+Thiết kế module dễ dàng mở rộng mà không làm thay đổi code đang có trong module đó.
+```
+
+**L: Liskov Substitution**
+```bash
+Đây là 1 nguyên lý khó. Nếu có 1 lớp cha và 1 lớp con thì instance của lớp cơ sở và lớp con 
+có thể thay thế cho nhau.
+```
+
+**I: Interface Segregation**
+```bash
+Users không nên bị bắt buộc phải phụ thuộc vào các interfaces mà họ không sử dụng.
+```
+
+**D: Dependency Inversion**
+```bash
+1. Nhưng module cấp cao không nên phụ thuộc vào những module cấp thấp. Cả hai nên phụ thuộc vào abstraction.
+2. Abstraction (interface) không nên phụ thuộc vào chi tiết, mà ngược lại.
+```
