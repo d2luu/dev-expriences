@@ -33,7 +33,8 @@ class App extends Component {
 			<div>
 				<h1>Hello world</h1>
 			</div>
-	};
+		);
+	}
 }
 
 export default App;
