@@ -1,5 +1,5 @@
 ### Use stateless component
-** The Stateless functional components will benefit from future React performance optimizations specific to these components. **
+**The Stateless functional components will benefit from future React performance optimizations specific to these components.**
 ```javascript
 const App = () => {
   return (
